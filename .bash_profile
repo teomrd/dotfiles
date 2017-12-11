@@ -7,6 +7,9 @@ export PATH="$HOME/bin:$PATH";
  # Load the npm-completion script
  source ~/.npm-completion.bash
 
+  # Load the yarn-completion script
+ source ~/.yarn-completion.bash
+
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
 # * ~/.extra can be used for other settings you don’t want to commit.
