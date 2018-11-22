@@ -197,3 +197,20 @@ function o() {
 function tre() {
 	tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
 }
+
+# Safely deletes a file or a directory. Moving it to the Trash.
+function binit() {
+	local binFolder;
+	binFolder="$HOME/.Trash";
+	local realFilePath;
+	realFilePath="$(realpath "$1")";
+	# input param is a dir
+	# make bin dir if it doesn't exist
+	mkdir -p "${binFolder}";
+	if [[ -d "${realFilePath}" ]]; then
+		mkdir -p "${binFolder}/$1";
+		cp -R "${realFilePath}" "${binFolder}/$1/" && rm -rf "${realFilePath}";
+	else # input param is a file, (probably)
+		mv -v "${realFilePath}" "${binFolder}";
+	fi;
+}
