@@ -40,6 +40,9 @@
 	# Amend the currently staged files to the latest commit
 	amend = commit --amend --reuse-message=HEAD
 
+	# Adds all the changes in to the staging area and amends using the same commit message   
+	pontocommit = "!f() { git add . && git commit --amend --reuse-message=HEAD; }; f"
+
 	# Credit an author on the latest commit
 	credit = "!f() { git commit --amend --author \"$1 <$2>\" -C HEAD; }; f"
 
